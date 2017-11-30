@@ -1,0 +1,92 @@
+/* 
+** Tanya D Olivas
+** CS371
+** errors.txt
+*/
+
+--------------------------------------------------------------------
+In Circle.java
+-in scale method
+   //radius = radius + factor;            incorrect code
+
+   //corrected code
+   radius = radius * factor;
+   return radius;
+
+**error found by test methods scaleTest() and scaleNeg()
+
+-in moveBy method
+center.x = center.x + xOffset;
+   //center.y = center.y + xOffset;
+
+   //corrected code
+   center.y = center.y + yOffset;
+   return center;
+
+**error found by test methods simpleMove(), secMove(), negMove and simpleMoveNeg()
+--------------------------------------------------------------------
+In Circle1.java
+
+- in intersects method
+   //entirety of original code is incorrect
+
+    //if (Math.abs(center.x - other.center.x) < radius &&
+      // Math.abs(center.y - other.center.y) < radius)
+     // return true;
+    //return false;
+ 
+
+
+  //correct code to be used for calculation
+   if ((Math.abs(center.x - other.center.x) > ( radius  + other.radius)) || (Math.abs(center.y - other.center.y) > ( radius  + other.radius)))
+		      return false;
+   return true;
+
+
+**error found by test intersect() and intersect2()
+--------------------------------------------------------------------
+In Circle2.java
+
+-in Circle2 
+
+//incorrect code
+   //super(y,x,radius);
+	
+	//correct modified code
+	super(x,y,radius);
+
+
+**error found by test setup()
+
+
+- in intersects method
+
+
+ double d;
+   
+   //incorrect calculations
+  /*d = Math.sqrt(Math.pow(center.x - other.center.x, 2) + 
+                 Math.pow(center.y - other.center.y, 2));
+   if (d < radius)
+      return true;
+   else
+      return false;*/
+	
+	//correct code
+	d = Math.pow(center.x - other.center.x, 2) +  Math.pow(center.y - other.center.y, 2);
+    if (d <= Math.pow(radius + other.radius, 2))
+    	return true;
+    else
+    	return false;
+
+
+
+**error found by test intersect() and intersect2()
+--------------------------------------------------------------------
+NONE in Point.java
+
+
+
+
+
+
